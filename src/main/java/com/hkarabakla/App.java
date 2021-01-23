@@ -1,7 +1,6 @@
 package com.hkarabakla;
 
-import com.hkarabakla.services.CategoryService;
-import com.hkarabakla.services.UserService;
+import com.hkarabakla.services.*;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class App
@@ -17,6 +16,18 @@ public class App
 
         CategoryService categoryService = (CategoryService) appContext.getBean("categoryService");
         categoryService.categoryOperations();
+
+        AuthorService authorService = (AuthorService)appContext.getBean("authorService");
+        authorService.authorOperation();
+
+        OrderService orderService = (OrderService)appContext.getBean("orderService");
+        orderService.orderOperations();
+
+        BookService bookService =(BookService)appContext.getBean("bookService");
+        bookService.bookOperations();
+
+        AddressService addressService=(AddressService)appContext.getBean("addressService");
+        addressService.addressOperation();
 
         appContext.close();
     }
